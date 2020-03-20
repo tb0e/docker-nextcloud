@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "nextcloud"
+    labels:
+        app: "nextcloud"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: nextcloud7372-nextcloud.1601c6b9b7f84442a3e0.westeurope.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "nextcloud"
+                servicePort: 80
