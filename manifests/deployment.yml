@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: "nextcloud"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "nextcloud"
+    spec:
+      containers:
+        - name: "nextcloud"
+          image: "msprocloud.azurecr.io/nextcloud"
+          ports:
+          - containerPort: 80
